@@ -16,7 +16,11 @@ var userSchema = new Schema({
     trim: true },
   age: { 
     type: Number,
-    trim: true }
+    trim: true },
+    hometown:{
+      type:String,
+      trim:true
+    }
 });
 
 const User = mongoose.model("User", userSchema);

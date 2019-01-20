@@ -3,7 +3,11 @@ const app = express();
 const bp = require("body-parser");
 const cors = require("cors");
 const User = require("./db/people");
+const we = require("./fetchweather");
+//import {getWeather} from './fetchweather'
 //const hbs = require('hbs')
+
+const port = process.env.port || 3000;
 
 app.use(cors());
 app.use(bp.urlencoded({ extended: false }));
@@ -25,12 +29,74 @@ app.get("/addUser", (req, res) => {
   res.render("add.html");
 });
 
+app.get("/viewUsers", (req, res) => {
+  res.render("view.html");
+});
+
+app.get("/updateUsers", (req, res) => {
+  res.render("update.html");
+});
+
+app.get("/weatherData", (req, res) => {
+  res.render("weather.html");
+});
+
+app.post("/weatherData", (req, res) => {
+  console.log("awawawa");
+  console.log(req.body);
+  User.find({ name: req.body.name })
+    .then(result => {
+      let city = result[0].hometown;
+      console.log(city);
+      we.getWeather(city)
+        .then(r => {
+          console.log(r);
+          res.json({ city : city ,temp: r[0], summry: r[1] });
+        })
+        .catch(e => {
+          console.log(e);
+        });
+
+      //console.log(result);
+    })
+    .catch(e => {
+      res.send(e);
+    });
+
+  // we.getWeather("gampaha").then(r => {
+  //   console.log(r);
+  // });
+
+});
+
+app.post("/updateUsers", (req, res) => {
+  console.log("updata " + req.body.upname);
+  User.findOneAndUpdate(
+    { name: req.body.upname },
+    {
+      name: req.body.name,
+      password: req.body.pass,
+      age: req.body.age,
+      hometown: req.body.hometown
+    }
+  )
+    .then(result => {
+      res.send(result);
+      console.log(result);
+    })
+    .catch(e => {
+      console.log(e);
+      res.send(e);
+    });
+});
+
 app.post("/addUser", (req, res) => {
   console.log(req.body);
   const newUser = new User({
     name: req.body.name,
     password: req.body.pass,
-    age: req.body.age
+    age: req.body.age,
+    hometown: req.body.hometown
   });
 
   newUser
@@ -45,53 +111,32 @@ app.post("/addUser", (req, res) => {
     });
 });
 
-app.get("/viewUsers", (req, res) => {
-  res.render("view.html");
-
-  //res.send();
-  // console.log(req.body+'in get req')
-  // User.find({ name: req.body.name })
-  //   .then(result => {
-  //     res.send(result);
-  //   })
-  //   .catch(e => {
-  //     res.send(e);
-  //   });
-});
 app.post("/viewUsers", (req, res) => {
   console.log(req.body + "in post req");
-  
-  if(req.body.name != ""){
+
+  if (req.body.name != "") {
     User.find({ name: req.body.name })
-    .then(result => {
-      
-      res.json(result);
-      console.log(result);
-    })
-    .catch(e => {
-      res.send(e);
-    });
-
-  }
-
-  else{
-
+      .then(result => {
+        res.json(result);
+        console.log(result);
+      })
+      .catch(e => {
+        res.send(e);
+      });
+  } else {
     User.find()
-    .then(result => {
-      
-      res.json(result);
-      console.log(result);
-    })
-    .catch(e => {
-      res.send(e);
-    });
-
-
+      .then(result => {
+        res.json(result);
+        console.log(result);
+      })
+      .catch(e => {
+        res.send(e);
+      });
   }
- 
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
+  console.log(process.env.port);
   console.log("server is running");
 });
 
