@@ -1,6 +1,6 @@
 console.log("awoooooo");
 
-const api = "http://localhost:3000/addUser";
+const api = "/addUser";
 
 const btnclk = document.querySelector("#btn1");
 const txtfeild1 = document.querySelector("#name1");

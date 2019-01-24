@@ -1,6 +1,6 @@
 console.log('in uodate.js')
 
-const api = "http://localhost:3000/updateUsers";
+const api = "/updateUsers";
 
 
 let upname1 = document.querySelector('#upname')

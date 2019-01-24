@@ -7,9 +7,9 @@ const we = require("./fetchweather");
 //import {getWeather} from './fetchweather'
 //const hbs = require('hbs')
 
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
-app.use(cors());
+//app.use(cors());
 app.use(bp.urlencoded({ extended: false }));
 app.use(bp.json());
 //app.set('view engine','hbs')
@@ -51,7 +51,7 @@ app.post("/weatherData", (req, res) => {
       we.getWeather(city)
         .then(r => {
           console.log(r);
-          res.json({ city : city ,temp: r[0], summry: r[1] });
+          res.json({ city: city, temp: r[0], summry: r[1] });
         })
         .catch(e => {
           console.log(e);
@@ -66,7 +66,6 @@ app.post("/weatherData", (req, res) => {
   // we.getWeather("gampaha").then(r => {
   //   console.log(r);
   // });
-
 });
 
 app.post("/updateUsers", (req, res) => {
@@ -136,8 +135,9 @@ app.post("/viewUsers", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(process.env.port);
+  console.log(process.env.PORT);
   console.log("server is running");
+  console.log(`Current directory: ${process.cwd()}`);
 });
 
 /*

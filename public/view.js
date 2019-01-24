@@ -12,7 +12,7 @@ btn.addEventListener("click", e => {
 
   console.log(data);
 
-  fetch("http://localhost:3000/viewUsers", {
+  fetch("/viewUsers", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" }
