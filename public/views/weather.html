@@ -19,8 +19,21 @@
       href="../styles.css"
     />
     <!-- Compiled and minified CSS -->
+
+    <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo">  weatherd</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="/addUser">Add User</a></li>
+            <li><a href="/viewUsers">View Users</a></li>
+            <li><a href="/updateUsers">update user</a></li>
+            <li><a href="/weatherData">weather</a></li>
+          </ul>
+        </div>
+      </nav>
   </head>
   <body>
+      <div class="min">
     <label for="in1">enter name</label>
     <input type="text" name="in1" id="in1" />
     <input type="button" name="btn1" value="get data" id="btn1" />
@@ -30,6 +43,7 @@
     <div id="loading"><img src="../200.gif" alt="" /></div>
 
     <div id="main"></div>
+      </div>
   </body>
   <script src="weather.js"></script>
 </html>

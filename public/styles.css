@@ -1,5 +1,16 @@
-body {
+.min{
   margin: 0 auto;
   width: 50%;
   text-align: center;
+}
+
+#divres{
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+.nav-wrapper {
+  background-color:#212121;
+  font-size: 12px;
+ 
 }

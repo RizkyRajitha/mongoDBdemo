@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="utf-8" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-     
-    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
 
-    
+    <link rel="stylesheet" type="text/css" media="screen" href="../styles.css" />
+
     <title>weather webapp</title>
 
-    <h1>Wasuuuup</h1>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">  weatherd</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/addUser">Add User</a></li>
+          <li><a href="/viewUsers">View Users</a></li>
+          <li><a href="/updateUsers">update user</a></li>
+          <li><a href="/weatherData">weather</a></li>
+        </ul>
+      </div>
+    </nav>
   </head>
+
   <body>
 
-    <a href="/addUser">Add User</a><br>
-    <a href="/viewUsers">View Users</a><br>
-    <a href="/updateUsers">update</a><br>
-    <a href="/weatherData">weather</a>
+    <div class="min">
+
+      <br><br>
+    <ul class="collection">
+        <li class="collection-item"><a href="/addUser">Add User</a></li>
+        <li class="collection-item"><a href="/viewUsers">View Users</a></li>
+        <li class="collection-item"><a href="/updateUsers">update</a></li>
+        <li class="collection-item"><a href="/weatherData">weather</a></li>
+      </ul>
+    </div>
+
+
   </body>
   <script></script>
 </html>
