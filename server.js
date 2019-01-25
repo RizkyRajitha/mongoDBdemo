@@ -46,7 +46,7 @@ app.post("/weatherData", (req, res) => {
   console.log(req.body);
   User.find({ name: req.body.name })
     .then(result => {
-      let city = result[0].hometown;
+      let city = `${result[0].hometown}  ${result[0].city}`;
       console.log(city);
       we.getWeather(city)
         .then(r => {
@@ -76,7 +76,8 @@ app.post("/updateUsers", (req, res) => {
       name: req.body.name,
       password: req.body.pass,
       age: req.body.age,
-      hometown: req.body.hometown
+      hometown: req.body.hometown,
+      city: req.body.city
     }
   )
     .then(result => {
@@ -95,7 +96,8 @@ app.post("/addUser", (req, res) => {
     name: req.body.name,
     password: req.body.pass,
     age: req.body.age,
-    hometown: req.body.hometown
+    hometown: req.body.hometown,
+    city: req.body.city
   });
 
   newUser

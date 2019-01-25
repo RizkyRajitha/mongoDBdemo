@@ -9,6 +9,7 @@ const txtfeild1 = document.querySelector("#name1");
 const txtfeild2 = document.querySelector("#pass1");
 const txtfeild3 = document.querySelector("#age1");
 const txtfeild4 = document.querySelector("#hometown1");
+const txtfeild5 = document.querySelector("#city1");
 
 btn.addEventListener('click',e=>{
     e.preventDefault();
@@ -16,6 +17,7 @@ btn.addEventListener('click',e=>{
     let pass = txtfeild2.value;
     let age = txtfeild3.value;
     let hometown = txtfeild4.value;
+    let city = txtfeild5.value;
     let upname = upname1.value;
 
     let message = { upname:upname, name:name , pass:pass , age:age , hometown:hometown}

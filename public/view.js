@@ -23,7 +23,7 @@ btn.addEventListener("click", e => {
 
     r.forEach(element => {
 
-      divres.innerHTML += "<p> name -  "+element.name +"<br> passowrd - "+element.password+"<br> age - "+element.age+"<br> hometown - "+element.hometown+"</p>"
+      divres.innerHTML += "<p> name -  "+element.name +"<br> passowrd - "+element.password+"<br> age - "+element.age+"<br> hometown - "+element.hometown+"<br> city - "+element.city+"</p>"
       
     });
   
